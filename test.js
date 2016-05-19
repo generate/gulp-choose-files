@@ -2,21 +2,21 @@
 
 require('mocha');
 var assert = require('assert');
-var choose = require('./');
+var files = require('./');
 
 describe('gulp-choose-files', function() {
   it('should export a function', function() {
-    assert.equal(typeof choose, 'function');
+    assert.equal(typeof files, 'function');
   });
 
   it('should export an object', function() {
-    assert(choose);
-    assert.equal(typeof choose, 'object');
+    assert(files);
+    assert.equal(typeof files, 'object');
   });
 
   it('should throw an error when invalid args are passed', function(cb) {
     try {
-      choose();
+      files();
       cb(new Error('expected an error'));
     } catch (err) {
       assert(err);

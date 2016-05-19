@@ -14,8 +14,8 @@ module.exports = function(config) {
     if (this.isRegistered('gulp-choose-files')) return;
     debug('initializing "%s", from "%s"', __filename, module.parent.id);
 
-    this.define('choose', function() {
-      debug('running choose');
+    this.define('files', function() {
+      debug('running files');
       
     });
   };
