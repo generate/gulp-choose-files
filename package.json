@@ -1,6 +1,6 @@
 {
   "name": "gulp-choose-files",
-  "description": "Prompts you to choose the files to write to the file system.",
+  "description": "Gulp plugin that prompts you to choose the files pass through the stream.",
   "version": "0.1.0",
   "homepage": "https://github.com/jonschlinkert/gulp-choose-files",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
@@ -19,22 +19,53 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {},
+  "dependencies": {
+    "extend-shallow": "^2.0.1",
+    "question-cache": "^0.4.0",
+    "through2": "^2.0.1"
+  },
   "devDependencies": {
+    "assemble": "^0.11.0",
+    "engine-handlebars": "^0.8.0",
+    "gulp": "^3.9.1",
     "gulp-format-md": "^0.1.9",
     "mocha": "^2.4.5"
   },
-  "keywords": [],
+  "keywords": [
+    "ask",
+    "choose",
+    "conditional",
+    "files",
+    "fs",
+    "gulp",
+    "gulpplugin",
+    "prompt",
+    "question",
+    "render",
+    "write"
+  ],
   "verb": {
+    "toc": false,
     "layout": "default",
+    "tasks": [
+      "readme"
+    ],
     "plugins": [
       "gulp-format-md"
     ],
     "related": {
-      "list": []
+      "description": "Other gulp plugins I maintain",
+      "list": [
+        "gulp-htmlmin",
+        "gulp-condense",
+        "gulp-extname"
+      ]
     },
     "reflinks": [
       "verb"
-    ]
+    ],
+    "lint": {
+      "reflinks": true
+    }
   }
 }

@@ -1,22 +1,42 @@
-/*!
- * gulp-choose-files (https://github.com/jonschlinkert/gulp-choose-files)
- *
- * Copyright (c) 2016, Jon Schlinkert.
- * Licensed under the MIT License.
- */
-
 'use strict';
 
-var debug = require('debug')('gulp-choose-files');
+var through = require('through2');
+var extend = require('extend-shallow');
+var Questions = require('question-cache');
 
-module.exports = function(config) {
-  return function(app) {
-    if (this.isRegistered('gulp-choose-files')) return;
-    debug('initializing "%s", from "%s"', __filename, module.parent.id);
+module.exports = function(options) {
+  var opts = extend({prop: 'relative'}, options);
+  var questions = new Questions();
+  var paths = [];
+  var files = {};
 
-    this.define('files', function() {
-      debug('running files');
-      
+  return through.obj(function(file, enc, next) {
+    var key = fileKey(file, opts);
+    paths.push(key);
+    files[key] = file;
+    next();
+  }, function(next) {
+    var stream = this;
+    questions.choices('files', 'Which files do you want to write?', paths);
+    questions.ask('files', function(err, answers) {
+      if (err || !answers.files) {
+        next(err);
+        return;
+      }
+      answers.files.forEach(function(filepath) {
+        stream.push(files[filepath]);
+      });
+      next();
     });
-  };
+  });
 };
+
+function fileKey(file, opts) {
+  if (typeof opts.key === 'string') {
+    return file[opts.key];
+  }
+  if (typeof opts.key === 'function') {
+    return opts.key(file);
+  }
+  return file.relative;
+}
