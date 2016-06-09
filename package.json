@@ -1,7 +1,7 @@
 {
   "name": "gulp-choose-files",
   "description": "Gulp plugin that prompts you to choose the files pass through the stream.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/jonschlinkert/gulp-choose-files",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/gulp-choose-files",
