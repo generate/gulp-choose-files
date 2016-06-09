@@ -56,13 +56,14 @@
     "related": {
       "description": "Other gulp plugins I maintain",
       "list": [
-        "gulp-htmlmin",
         "gulp-condense",
-        "gulp-extname"
+        "gulp-extname",
+        "gulp-htmlmin"
       ]
     },
     "reflinks": [
-      "verb"
+      "verb",
+      "verb-readme-generator"
     ],
     "lint": {
       "reflinks": true
