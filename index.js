@@ -6,6 +6,7 @@ var Questions = require('question-cache');
 
 module.exports = function(options) {
   var opts = extend({prop: 'relative'}, options);
+  var msg = opts.message || 'Which files do you want to write?';
   var questions = new Questions();
   var paths = [];
   var files = {};
@@ -17,7 +18,7 @@ module.exports = function(options) {
     next();
   }, function(next) {
     var stream = this;
-    questions.choices('files', 'Which files do you want to write?', paths);
+    questions.choices('files', msg, paths);
     questions.ask('files', function(err, answers) {
       if (err || !answers.files) {
         next(err);
