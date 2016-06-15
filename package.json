@@ -1,12 +1,12 @@
 {
   "name": "gulp-choose-files",
-  "description": "Gulp plugin that prompts you to choose the files pass through the stream.",
+  "description": "Gulp plugin that prompts you to choose the files to pass through the stream.",
   "version": "0.1.1",
-  "homepage": "https://github.com/jonschlinkert/gulp-choose-files",
+  "homepage": "https://github.com/generate/gulp-choose-files",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
-  "repository": "jonschlinkert/gulp-choose-files",
+  "repository": "generate/gulp-choose-files",
   "bugs": {
-    "url": "https://github.com/jonschlinkert/gulp-choose-files/issues"
+    "url": "https://github.com/generate/gulp-choose-files/issues"
   },
   "license": "MIT",
   "files": [
@@ -25,11 +25,11 @@
     "through2": "^2.0.1"
   },
   "devDependencies": {
-    "assemble": "^0.11.0",
+    "assemble": "^0.14.0",
     "engine-handlebars": "^0.8.0",
     "gulp": "^3.9.1",
     "gulp-format-md": "^0.1.9",
-    "mocha": "^2.4.5"
+    "mocha": "^2.5.3"
   },
   "keywords": [
     "ask",
@@ -39,6 +39,7 @@
     "fs",
     "gulp",
     "gulpplugin",
+    "pick",
     "prompt",
     "question",
     "render",
@@ -54,7 +55,6 @@
       "gulp-format-md"
     ],
     "related": {
-      "description": "Other gulp plugins I maintain",
       "list": [
         "gulp-condense",
         "gulp-extname",
