@@ -36,6 +36,11 @@ module.exports = function(options) {
       return;
     }
 
+    if (paths.length === 0) {
+      next();
+      return;
+    }
+
     questions.choices('files', msg, paths);
     questions.ask('files', opts, function(err, answers) {
       if (err || !answers.files) {
