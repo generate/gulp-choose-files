@@ -10,7 +10,9 @@
   },
   "license": "MIT",
   "files": [
-    "index.js"
+    "index.js",
+    "LICENSE",
+    "README.md"
   ],
   "main": "index.js",
   "engines": {
@@ -21,15 +23,14 @@
   },
   "dependencies": {
     "extend-shallow": "^2.0.1",
-    "question-cache": "^0.4.0",
+    "question-cache": "^0.5.1",
     "through2": "^2.0.1"
   },
   "devDependencies": {
-    "assemble": "^0.14.0",
+    "assemble": "^0.16.1",
     "engine-handlebars": "^0.8.0",
     "gulp": "^3.9.1",
-    "gulp-format-md": "^0.1.9",
-    "mocha": "^2.5.3"
+    "gulp-format-md": "^0.1.9"
   },
   "keywords": [
     "ask",
@@ -40,6 +41,7 @@
     "gulp",
     "gulpplugin",
     "pick",
+    "plugin",
     "prompt",
     "question",
     "render",
@@ -56,6 +58,7 @@
     ],
     "related": {
       "list": [
+        "gulp-choose-file",
         "gulp-condense",
         "gulp-extname",
         "gulp-htmlmin"
