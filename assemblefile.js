@@ -33,15 +33,11 @@ app.task('render', function() {
  */
 
 app.task('pages', function() {
-  app.engine('hbs', require('engine-handlebars'));
-  app.pages('foo', {content: 'this is a page'});
-  app.pages('bar', {content: 'this is a page'});
-  app.pages('baz', {content: 'this is a page'});
-
-  app.data({title: 'Assemble'});
+  app.pages('foo', {content: 'this is foo'});
+  app.pages('bar', {content: 'this is bar'});
+  app.pages('baz', {content: 'this is baz'});
   return app.toStream('pages')
     .pipe(choose())
-    .pipe(app.renderFile('hbs'))
     .pipe(app.dest('actual'));
 });
 
