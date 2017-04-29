@@ -2,12 +2,11 @@
 
 var through = require('through2');
 var extend = require('extend-shallow');
-var Questions = require('question-cache');
+var Prompt = require('prompt-checkbox');
 
 module.exports = function(options) {
   var opts = extend({key: 'relative', save: false}, options);
   var msg = opts.message || 'Which files do you want to write?';
-  var questions = new Questions();
   var paths = [];
   var files = {};
 
@@ -20,6 +19,7 @@ module.exports = function(options) {
     var key = fileKey(file, opts);
     paths.push(key);
     files[key] = file;
+
     next();
   }, function(next) {
     var stream = this;
@@ -41,17 +41,25 @@ module.exports = function(options) {
       return;
     }
 
-    questions.choices('files', msg, paths);
-    questions.ask('files', opts, function(err, answers) {
-      if (err || !answers.files) {
-        next(err);
-        return;
-      }
-      answers.files.forEach(function(filepath) {
-        stream.push(files[filepath]);
-      });
-      next();
+    var answers = {};
+    var prompt = new Prompt({
+      name: 'files',
+      message: msg,
+      type: 'checkbox',
+      choiceObject: true,
+      radio: true,
+      choices: paths
     });
+
+    prompt.run(answers)
+      .then(function(answers) {
+        answers.forEach(function(filepath) {
+          stream.push(files[filepath]);
+        });
+        next();
+      })
+      .catch(next);
+
   });
 };
 
